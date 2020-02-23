@@ -30,7 +30,7 @@ public class PidManager {
         }
 
         //If tracker run loop the run
-        if (tracker == 5000) {
+        if (tracker == max) {
             //Successful initialized all pid
             return 1;
         } else {
