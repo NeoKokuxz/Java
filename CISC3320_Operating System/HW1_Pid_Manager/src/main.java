@@ -6,10 +6,7 @@ public class main {
         PidManager p1 = new PidManager();
         Boolean condition = true;
         Scanner sc = new Scanner(System.in);
-        String input;
         userInput();
-        //AllocatePid
-        int pid;
         //Test to run 5000 processes
         testPid(p1);
         //Test to release specific pid position
@@ -20,28 +17,30 @@ public class main {
 
     public static void userInput() {
         System.out.println("Please enter process number to start");
+        //User input process name
     }
 
     //Test function for 5000 processes input
     public static void testPid(PidManager p1) {
         int pid;
-        for(int i = 0; i<= 5000; i++) {
-            //userInput();
-            //input = sc.nextLine();
-            //if (input.equals("quit")) {
-            //    break;
-            //}
+        for(int i = 0; i<= 19000; i++) {
             //AllocatePid
             pid = p1.allocate_Pid();
-            //-1 means fail because position full
+            //-1 means fail to locate open position
             if (pid == -1) {
                 //Check id status and release position for new id
                 p1.checkPid();
+                //Put pid into released position
                 pid = p1.allocate_Pid();
+//                System.out.println("Process: " + i + " with PID: " + pid);
+
             }
+            //Output
             if(pid==300 || pid==5000) {
                 //Print i value corresponding to pid position 300 && 5000
                 System.out.println("Process: " + i + " with PID: " + pid);
+            } else if(pid >=300 && pid < 320) {
+                System.out.println("released: " + i + " with PID: " + pid);
             }
         }
     }
