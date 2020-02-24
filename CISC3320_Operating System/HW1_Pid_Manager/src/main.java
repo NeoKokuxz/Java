@@ -23,7 +23,7 @@ public class main {
     //Test function for 5000 processes input
     public static void testPid(PidManager p1) {
         int pid;
-        for(int i = 0; i<= 19000; i++) {
+        for(int i = 0; i<= 5000; i++) {
             //AllocatePid
             pid = p1.allocate_Pid();
             //-1 means fail to locate open position
@@ -39,8 +39,6 @@ public class main {
             if(pid==300 || pid==5000) {
                 //Print i value corresponding to pid position 300 && 5000
                 System.out.println("Process: " + i + " with PID: " + pid);
-            } else if(pid >=300 && pid < 320) {
-                System.out.println("released: " + i + " with PID: " + pid);
             }
         }
     }
